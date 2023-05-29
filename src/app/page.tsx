@@ -1,3 +1,11 @@
+import { ReactElement } from "react"
+import { JsxElement } from "typescript"
+
+const ThemifiedBanner = ({ theme = '', children }: { theme?: string, children: ReactElement | string }) => (
+  <article className={`p-4 ${theme}`} >
+    <h1 className="text-6xl text-theme-accent">{children}</h1>
+  </article>)
+
 export default function Home() {
   return (<>
     <header>
@@ -6,7 +14,18 @@ export default function Home() {
       </nav>
     </header>
     <main className="flex min-h-screen flex-col items-center justify-center p-4">
-      <h1 className="text-8xl text-teal-500 ">Adri is lovely</h1>
+      <ThemifiedBanner>
+        Comming Soon!
+      </ThemifiedBanner>
+      <ThemifiedBanner theme="theme-alternate">
+        Comming Soon Themified!
+      </ThemifiedBanner>
+      <ThemifiedBanner theme="theme-yellow">
+        Comming Soon Themified!
+      </ThemifiedBanner>
+      <ThemifiedBanner theme="theme-purple">
+        Comming Soon Themified!
+      </ThemifiedBanner>
     </main>
   </>)
 }

@@ -6,6 +6,28 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --text-color-default: 0, 0, 0;
+}
+
+.theme-alternate {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --text-color-accent: 90, 200, 140;
+}
+
+.theme-yellow {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 0;
+  --background-end-rgb: 255, 255, 0;
+  --text-color-accent: 155, 200, 90;
+}
+
+.theme-purple {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 255, 0, 255;
+  --background-end-rgb: 255, 0, 255;
+  --text-color-accent: 230, 45, 2000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +35,7 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --text-color-accent: 255, 45, 90;
   }
 }
 
