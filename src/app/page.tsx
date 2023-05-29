@@ -6,7 +6,7 @@ export default function Home() {
       </nav>
     </header>
     <main className="flex min-h-screen flex-col items-center justify-center p-4">
-      <h1 className="text-8xl text-orange-400 ">Under construction</h1>
+      <h1 className="text-8xl text-teal-500 ">Adri is lovely</h1>
     </main>
   </>)
 }
