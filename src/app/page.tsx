@@ -1,5 +1,4 @@
 import { ReactElement } from "react"
-import { JsxElement } from "typescript"
 
 const ThemifiedBanner = ({ theme = '', children }: { theme?: string, children: ReactElement | string }) => (
   <article className={`p-4 ${theme}`} >
