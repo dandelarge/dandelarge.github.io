@@ -2,7 +2,7 @@ import { ReactElement } from "react"
 
 const ThemifiedBanner = ({ theme = '', children }: { theme?: string, children: ReactElement | string }) => (
   <article className={`p-4 ${theme}`} >
-    <h1 className="text-6xl text-theme-accent">{children}</h1>
+    <h1 className="text-6xl text-theme-accent font-mono">{children}</h1>
   </article>)
 
 export default function Home() {

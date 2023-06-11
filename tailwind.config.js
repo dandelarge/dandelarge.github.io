@@ -15,6 +15,10 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ["var(--font-family-sans)", "sans-serif"],
+      serif: ["var(--font-family-serif)", "serif"],
+    },
     extend: {
       textColor: {
         theme: {
@@ -28,5 +32,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
