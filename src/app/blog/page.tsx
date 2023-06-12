@@ -1,16 +1,17 @@
-import { readFile } from "fs/promises"
-import { join } from "path"
-import Test from './test.mdx'
+import { readFileSync } from "fs"
+import { MDXRemote } from 'next-mdx-remote/rsc'
 
-async function getTestPost() {
-  const testPost = await readFile(join(__dirname, 'test.mdx'), 'utf-8');
+function getTestPost() {
+  const testPost = readFileSync('src/app/blog/test.mdx', 'utf-8');
   return testPost;
 }
 
-export default function Blog() {
+export default async function Blog() {
+
+  const source = getTestPost();
   return (
     <div className='prose dark:prose-invert '>
-      <Test />
+      <MDXRemote source={source} />
     </div>
   )
 }
