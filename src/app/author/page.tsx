@@ -18,7 +18,7 @@ export default function Author() {
               <span className="text-white text-opacity-100">Daniel Arauz.</span>
             </h3>
             <p className="text-white text-opacity-75">
-              I've been developing stuff since 2012.
+              I&apos;ve been developing stuff since 2012.
             </p>
           </div>
         </div>
