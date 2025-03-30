@@ -14,16 +14,29 @@ export default async function Blog() {
       }}
     >
       <div className="prose dark:prose-invert">
-        {sources.map((post, index) => (
-          <>
-            <MDXRemote
-              source={post.content}
-              components={{
-                Img: PreviewImg,
+        <h1>Blog entries</h1>
+        {sources.map((post) => (
+          <div key={post.slug} className="mb-24 max-h-[800px] overflow-hidden">
+            <h2 className="text-4xl font-bold">{post.title}</h2>
+            <PreviewImg
+              src={`${post.image}`}
+              alt={post.title}
+              styles={{
+                maxHeight: "400px",
+                overflow: "hidden",
+                objectFit: "cover",
+                objectPosition: "center",
               }}
             />
-            {index < sources.length - 1 && <hr className="my-20" />}
-          </>
+            <p>{post.excerpt}</p>
+            <a
+              href={`/blog/${post.slug}`}
+              className="text-2xl flex gap-2 items-center"
+            >
+              Read more
+              <img src="/arrow1.svg" alt="Read more" />
+            </a>
+          </div>
         ))}
       </div>
     </SideNavLayout>

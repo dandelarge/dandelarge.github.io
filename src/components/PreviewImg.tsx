@@ -39,9 +39,10 @@ function Modal({
 interface Props {
   src: string;
   alt: string;
+  styles?: any;
 }
 
-export default function PreviewImg({ src, alt }: Props) {
+export default function PreviewImg({ src, alt, styles }: Props) {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(true);
@@ -54,7 +55,7 @@ export default function PreviewImg({ src, alt }: Props) {
   return (
     <>
       <button className="preview-img" onClick={handleClick}>
-        <img src={src} alt={alt} />
+        <img src={src} alt={alt} style={{ ...styles }} />
       </button>
       {open &&
         createPortal(

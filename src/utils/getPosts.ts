@@ -12,7 +12,8 @@ export default function getPosts() {
       const timeString = dateWithTimeString.split("_")[1];
       const [year, month, day] = dateString.split("-");
       const [hour, minute] = timeString.split("-");
-      const image = content.match(/\<img src="(.*)" alt="(.*)"\ \/\>/);
+      const image = content.match(/\<Img src="([^"]*)" /i);
+
       const imageSrc = image ? image[1] : "/placeholder.jpg";
       const excerpt = content.match(/\w.*\n/g);
 
