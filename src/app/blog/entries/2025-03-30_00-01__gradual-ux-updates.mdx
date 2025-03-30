@@ -1,0 +1,47 @@
+# Refreshing the UX while keeping the App familiar while thinking on future
+
+We have a page with a very long form. You can fill this form in little parts. Navigating it can be a little complicated, and splitting the form is not as simple as it might seem at first.
+
+The problem relies on the fact that our older clients are very used to the older, ugly interface and they know the form almost by heart. The newer clients simply hate the form altogether. On top of that, there are technology limitations and a full refactor is too expensive.
+
+That's just one example of the running issues of the application as it grows. During discovery with the designers, we came to the following conclutions:
+
+1. According to user research, the current UI experience has a lot of room for improvement.
+
+2. We have a new set of design rules and guidelines we want to start implementing that address some of the user’s feedback about the application’s UX.
+
+3. We’ve decided in the frontend guild that we’ll converge into a single tech stack and given MUSE already has the right tech stack, we can start solving problems that other teams will have in the future.
+
+The plan is to address these three points at the same time with incremental changes
+
+<Img src="/before-after.jpeg" alt="previous layout vs new layout" />
+
+## The Strategy: Separation of concerns; decouple behavior from layout
+
+After looking at the new designs, we have realized, there’s a series of components that can act only as Layout. Our current implementation of the app couples the behavior of the application with the layout, so rather than refactoring the old components to look new, we’ll create components that are decoupled from the Application’s logic.
+
+### First step: Creating the Static Components
+
+Static components don’t change and are oblivious to the App’s data. They are just layouts.
+
+- TabsMenu
+- Breadcrumbs
+- Top Menu
+- Sidenav Layout
+
+### Step two: Replacing the old Menu with the new one
+
+This implementation doesn't change anything about how the application is used. Instead, it’s about:
+
+1. Making the Menu better looking (sticking to the designs) 
+2. Making the code better
+3. Sneak in a new 'discoverable' feature
+
+<Img src="/tabs-menu-1.png" alt="Tabs menu Algorithm" />
+
+### Step three: Adding the Title Component (and cleanup)
+<Img src="/subheaders-catalog-pages.png" alt="Tabs menu Algorithm" />
+
+### Step four: Replace the Breadcrumbs
+
+First on the details pages and then remove them from the Catalog pages and replace them for the tabs menu

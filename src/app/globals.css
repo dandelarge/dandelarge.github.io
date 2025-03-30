@@ -1,9 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Tiny5&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-:root {
+  :root {
+    --font-family-logo: "Tiny5", monospace;
+    --bg-color-highlight: 255, 255, 255;
+    --bg-color-accent: 255, 255, 255;
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
@@ -34,7 +38,7 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 35, 0, 35;
+      --background-start-rgb: 35, 35, 30;
       --background-end-rgb: 0, 0, 0;
       --text-color-accent: 255, 45, 90;
     }
@@ -43,8 +47,6 @@
   body {
     min-height: 100vh;
     color: rgb(var(--foreground-rgb));
-    background: radial-gradient(ellipse at top left,
-        transparent,
-        rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    background: rgb(var(--background-start-rgb));
   }
 }

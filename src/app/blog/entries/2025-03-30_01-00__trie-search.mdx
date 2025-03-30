@@ -1,0 +1,203 @@
+# Implementing a Trie for fast search
+
+- Our search experience for roles and instruments is not the best. It search for a letter in the whole word.
+
+        - For instance. if I type “h” every instrument that has the letter “h” somewhere in the name it will be returned
+
+        - We got some feedback saying it would be easier to locate an instrument if we search at the beginning of the word. If the user types “h” all instruments that start with “H” should be returned.
+
+- We need to make sure we are searching in the translated string.
+
+- We also need to check if that makes sense for our Japanese customers.
+
+## The current search strategy
+
+We filter the list including all the elements that include the search term. Not great
+
+## Trie Search
+
+A trie is a data structure that saves words as nodes in an n-tree. 
+
+A search term is assumed as a prefix that will determine the path to follow inside the trie.
+
+- Every letter of the search term (or prefix) is a step deeper into the Trie.
+
+- Nodes have a map to their children, so the search
+
+- Each node has a set of references to all the leaves of the trie below it. This is what enables a fast autocomplete.
+
+and… it works with Japanese.
+
+<Img src="/trie-search.png" alt="Trie Search"/>
+Search Trie storing 10 words has 10 leaves. Nodes can be both branches and leaves. like node r from guitar
+
+### The catch with the trie search
+
+A trie search assumes the search term as a prefix, so it will ignore all of the words that contain the search term but don’t start with it.
+
+For an example: If we search for "guitar" we will get only results that start with "guitar" but not guitar variations like "electric guitar" or "bass guitar".
+
+## Actual Solution: mix both strategies
+
+A search trie gives us only items that start with the search term, and the current search gives us all the items that contain the search term; so let's just do both and then merge the results.
+
+<Img src="/trie-search-complexity.png" alt="Trie Search 2"/>
+
+### Caveats
+
+It requires a bit of memory to keep track of all the leaves of the trie (one for each word stored).
+
+The search complexity is O(n) which is nice, but we have to go through the list two times when searching.
+
+This works for small lists (in the order of the hundreds) god knows what’s the memory limit on the clients, let's not abuse it with long lists.
+
+## Implementation
+
+### newSearchTrie()
+
+Creates a new TrieSearch instance. We’ll need one to index and search with it.
+
+#### returns
+
+A new searchTrie instance
+
+Example:
+
+```tsx
+const trie = newSearchTrie();
+```
+
+
+### addWordToTrie(trie, word, value)
+
+Add a word to the trie with a value.
+
+#### params:
+
+- trie: The trie to add the word to. 
+        Create a new trie with newSearchTrie().
+
+- word: The word that will be used to build the trie. 
+        It must be a translated word.
+
+- value: The value that will be stored in the leave node.
+        IE `{ id: 'GUITAR', name: 'Guitar' }`
+
+#### returns
+null
+
+Example:
+
+```tsx
+const trie = newSearchTrie();
+addWord(trie, 'hello', {id: 1, name: 'hello'});
+```
+
+### makeTrieFromObjectList(list, [indexKey = ‘name’])
+
+Make a new TrieSearch instance from a list of objects with words.
+
+#### params:
+
+- list: The list of objects with words to make into a trie
+
+- indexKey (optional): Path to the object key that will be used as the index word. 
+It defaults to 'name'
+
+#### returns
+
+A trie instance
+
+Examples:
+
+With a default shaped object:
+
+```tsx
+const trie = makeTrieFromObjectList([
+  { id: 'value1', name: 'value 1' },
+  { id: 'value2', name: 'value 2' },
+  { id: 'value3', name: 'value 3' }
+]);
+```
+specifying the indexKey:
+
+```tsx
+const trie = makeTrieFromObjectList([
+  { id: 'value1', tag: 'value 1' },
+  { id: 'value2', tag: 'value 2' },
+  { id: 'value3', tag: 'value 3' }
+], 'tag');
+
+
+const trie = makeTrieFromObjectList([
+  { 
+    id: 'value1', 
+    complex: {
+      val:'value 1',
+      anything: {...}
+    }
+  },
+  { 
+    id: 'value2', 
+    complex: {
+      val:'value 2',
+      anything: {...}
+    }
+  },
+  { 
+    id: 'value3', 
+    complex: {
+      val:'value 3',
+      anything: {...}
+    }
+  },
+], 'complex.val');
+```
+
+### searchTrie(trie, word)
+
+Get all leaf nodes that match the given prefix.
+
+#### params:
+
+- trie: The trie where we are looking the word into
+
+- word: The search prefix. It must be a translated word.
+
+#### returns
+
+A Set of leaf nodes under the search prefix path
+
+Example:
+
+```tsx
+const searchTrieResults = searchTrie(trie, 'har')
+```
+
+### filterListByTrie(list, trie, word)
+
+This is the magic function. It filters a list of objects ordered by items that start with the given prefix and then, items that contain the prefix.
+
+#### params:
+
+- list: The list of objects to filter.
+
+- trie: The trie we are searching in.
+
+- word: Search prefix; The word we are searching for.
+
+#### returns
+
+An array of the filtered Items, starting with the results of the trie search.
+
+Example
+
+```tsx
+const originalList = [
+  { id: 'value1', name: 'value 1' },
+  { id: 'value2', name: 'value 2' },
+  { id: 'value3', name: 'value 3' }
+];
+const trie = makeTrieFromObjectList(originalList);
+const filteredList = filterListByTrie(list, trie, 'value');
+```

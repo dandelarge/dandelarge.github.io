@@ -1,0 +1,51 @@
+
+# UI Components Philosophy for Development
+## What's the philosophy? Why do we need it?
+The philosophy is a set of core principles that will guide the development of the UI components. The idea is that the philosophy will help us make decisions.
+
+
+## 1. We focus on the patterns, not the components
+Components are concrete implementations that can be reused to make a pattern.
+
+Patterns are how the user interacts with the data, and how data is presented.
+
+That means the reusable components are only building blocks. But the patterns are what the user percieves in the app; hence, the important thing is to mantain the patterns along the application consistent. But the way we can be flexible with the components that form these patterns.
+
+In other words, the reusable components are meant to be used, but they are not mandatory. Use your own judgement to decide if a reusable component is useful or not for your feature.
+
+### Example: The TabsMenu
+<Img src="/tabs-menu-example.png" alt="Tabs Menu Example" />
+
+## 2. Patterns are discovered, not invented
+Patterns are discovered from the design of the features. If a new feature introduces a new way of interacting with the application's data, then that's a new pattern.
+
+### Example: The subheaders
+<Img src="/proto-subheader.png" alt="proto-subheader" />
+<Img src="/subheaders-catalog-pages.png" alt="subheader" />
+<Img src="/subheaders-details.png" alt="subheader" />
+
+We are meant to develop the patterns along with the new feature requirements of the application.
+## 3. Slow development, fast adoption
+Once we add a reusable component into the code base, we are effectively making a commitment with the code because it will be used in many places of the app. The process of adding a new pattern is slow because the process is long and requires a lot of testing.
+This is an overview of the process steps:
+
+- **Design**: Patterns are identified on the design of a feature. Once there's a design, the developers need to identify the pattern that has not been implemented yet and abscract it into reusable components
+- **Abstraction**: Patterns are *"discovered"* from concrete feature designs. The developers need to abstract the pattern into reusable components. The absraction means that we make code that keeps the pattern but is indiferent of the context where it is used.
+- **Documentation**: Once the pattern is implemented, it needs to be documented and communicated to the rest of the developers who work on the project. a README file should be enough for most cases.
+- **First implementation**: Since patterns are discovered from a concrete feature request, the first implementation of the pattern is done in the context of the feature. This works as the first example of the pattern and how it's used for future reference.
+- **Testing**: The pattern needs to be tested in the context of the feature where it was discovered. This is important to make sure that the pattern works in the context where it was discovered.
+
+Developing a new pattern is basically "coding twice". First to create the generic components and helpers that form the pattern, and then the second time to implement the pattern in the context of the feature where it was discovered.
+
+Nevertheless, the patterns should be as intuitive as possible so that the adoption can be done by just looking into an example and replicating it.
+
+## 4. Development Experience is important
+The shared components only work if the developers are confortable using them. If an implementation becomes complicated, then it should be marked for refactoring or removed altogether.
+
+On everything we build, We would like:
+- Good Autocompletion. This we accomplish with proper typing and documentation.
+- Good error messages. This we accomplish with strict standardization of the error messages and translations.
+- Easy to understand examples.
+
+
+

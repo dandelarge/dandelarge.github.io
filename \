@@ -8,8 +8,10 @@ export default function Home() {
 
   return (
     <SideNavLayout selected="home">
-      <Header> Latest Articles </Header>
-      <div className="flex flex-wrap flex-row gap-4">
+      <div>
+        <Header> Latest Articles </Header>
+      </div>
+      <div className="flex flex-wrap flex-row justify-center gap-4">
         {articles.map((article, index) => (
           <ArticlePreview
             key={index}
@@ -17,7 +19,6 @@ export default function Home() {
             date={article.date}
             excerpt={article.excerpt}
             image={article.image}
-            slug={article.slug}
           />
         ))}
       </div>
