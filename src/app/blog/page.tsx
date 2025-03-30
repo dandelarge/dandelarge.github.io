@@ -2,7 +2,6 @@ import BlogSubMenu from "@/components/BlogSubmenu";
 import PreviewImg from "@/components/PreviewImg";
 import SideNavLayout from "@/components/layouts/sidenav-layout";
 import getPosts from "@/utils/getPosts";
-import { MDXRemote } from "next-mdx-remote/rsc";
 
 export default async function Blog() {
   const sources = getPosts();
