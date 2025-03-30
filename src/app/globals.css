@@ -38,9 +38,12 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 35, 35, 30;
-      --background-end-rgb: 0, 0, 0;
-      --text-color-accent: 255, 45, 90;
+      --background-start-rgb: 47, 54, 64;
+      --background-end-rgb: 53, 59, 72;
+      --text-color-accent: 0, 184, 148;
+      --text-color-default: 255, 255, 255;
+      --text-color-blue: 0, 191, 255;
+      --text-color-red: 241, 48, 49;
     }
   }
 

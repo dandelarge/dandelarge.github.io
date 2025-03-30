@@ -1,9 +1,7 @@
-export type SitePage = "home" | "blog" | "author";
-
 interface LiProps {
   path: string;
-  selected: SitePage;
-  id: SitePage;
+  selected: string;
+  id: string;
   children: React.ReactNode;
   label: string;
 }

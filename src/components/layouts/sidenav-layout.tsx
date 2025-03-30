@@ -1,9 +1,9 @@
 import Li from "../Li";
-import type { SitePage } from "../Li";
+import { siGithub } from "simple-icons";
 
 interface Props {
   children: React.ReactNode;
-  selected: SitePage;
+  selected: string;
   subMenus?: {
     blog?: React.ReactNode;
     home?: React.ReactNode;
@@ -12,14 +12,32 @@ interface Props {
 }
 
 export default function SideNavLayout({ children, selected, subMenus }: Props) {
+  console.log(siGithub.svg);
   return (
     <>
       <header>
-        <nav className="p-4 justify-between bg-theme-accent bg-opacity-5">
+        <nav className="p-4 justify-between bg-theme-accent bg-opacity-5 flex items-center">
           <a href="/" className="flex gap-2 items-center">
             <img src="/chilli.svg" alt="logo" className="w10 h-10" />
             <h3 className="font-logo text-xl">SalsaScript.dev</h3>
           </a>
+          <div>
+            <a
+              className="text-white"
+              href="https://github.com/dandelarge/dandelarge.github.io"
+            >
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-9 h-9"
+                fill="white"
+              >
+                <title>GitHub</title>
+                <path d={siGithub.path} />
+              </svg>
+            </a>
+          </div>
         </nav>
       </header>
       <div className="flex min-h-screen">
