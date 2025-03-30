@@ -2,9 +2,12 @@ import BlogSubMenu from "@/components/BlogSubmenu";
 import PreviewImg from "@/components/PreviewImg";
 import SideNavLayout from "@/components/layouts/sidenav-layout";
 import getPosts from "@/utils/getPosts";
-import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
+export function generateStaticParams() {
+  const posts = getPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 export default async function BlogPostPage({
   params,
 }: {
@@ -13,7 +16,6 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const posts = getPosts();
   const currentPost = posts.find((post) => post.slug === slug);
-  const compiled = await serialize(currentPost?.content || "");
 
   const article = await MDXRemote({
     source: currentPost?.content || "",
