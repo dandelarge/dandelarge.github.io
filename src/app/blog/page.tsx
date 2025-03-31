@@ -30,7 +30,7 @@ export default async function Blog() {
             <p>{post.excerpt}</p>
             <a
               href={`/blog/${post.slug}`}
-              className="text-2xl flex gap-2 items-center"
+              className="text-2xl flex gap-8 items-center"
             >
               Read more
               <img src="/arrow1.svg" alt="Read more" />

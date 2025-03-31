@@ -1,14 +1,12 @@
 # Implementing a Trie for fast search
 
-- Our search experience for roles and instruments is not the best. It search for a letter in the whole word.
+Our search experience for roles and instruments is not the best. It search for a letter in the whole word; for instance. if I type “h” every instrument that has the letter “h” somewhere in the name it will be returned
 
-        - For instance. if I type “h” every instrument that has the letter “h” somewhere in the name it will be returned
+We got some feedback saying it would be easier to locate an instrument if we search at the beginning of the word. If the user types “h” all instruments that start with “H” should be returned.
 
-        - We got some feedback saying it would be easier to locate an instrument if we search at the beginning of the word. If the user types “h” all instruments that start with “H” should be returned.
+We need to make sure we are searching in the translated string.
 
-- We need to make sure we are searching in the translated string.
-
-- We also need to check if that makes sense for our Japanese customers.
+We also need to check if that makes sense for our Japanese customers.
 
 ## The current search strategy
 
@@ -21,12 +19,10 @@ A trie is a data structure that saves words as nodes in an n-tree.
 A search term is assumed as a prefix that will determine the path to follow inside the trie.
 
 - Every letter of the search term (or prefix) is a step deeper into the Trie.
-
-- Nodes have a map to their children, so the search
-
+- Nodes have a map to their children, so the search has O(n) complexity.
 - Each node has a set of references to all the leaves of the trie below it. This is what enables a fast autocomplete.
 
-and… it works with Japanese.
+and… it works with Japanese!
 
 <Img src="/trie-search.png" alt="Trie Search"/>
 Search Trie storing 10 words has 10 leaves. Nodes can be both branches and leaves. like node r from guitar
