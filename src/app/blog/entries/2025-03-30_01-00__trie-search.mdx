@@ -48,7 +48,6 @@ The search complexity is O(n) which is nice, but we have to go through the list 
 This works for small lists (in the order of the hundreds) god knows what’s the memory limit on the clients, let's not abuse it with long lists.
 
 ## Implementation
-
 ### newSearchTrie()
 
 Creates a new TrieSearch instance. We’ll need one to index and search with it.
@@ -57,11 +56,6 @@ Creates a new TrieSearch instance. We’ll need one to index and search with it.
 
 A new searchTrie instance
 
-Example:
-
-```tsx
-const trie = newSearchTrie();
-```
 
 
 ### addWordToTrie(trie, word, value)
@@ -84,10 +78,6 @@ null
 
 Example:
 
-```tsx
-const trie = newSearchTrie();
-addWord(trie, 'hello', {id: 1, name: 'hello'});
-```
 
 ### makeTrieFromObjectList(list, [indexKey = ‘name’])
 
@@ -108,47 +98,6 @@ Examples:
 
 With a default shaped object:
 
-```tsx
-const trie = makeTrieFromObjectList([
-  { id: 'value1', name: 'value 1' },
-  { id: 'value2', name: 'value 2' },
-  { id: 'value3', name: 'value 3' }
-]);
-```
-specifying the indexKey:
-
-```tsx
-const trie = makeTrieFromObjectList([
-  { id: 'value1', tag: 'value 1' },
-  { id: 'value2', tag: 'value 2' },
-  { id: 'value3', tag: 'value 3' }
-], 'tag');
-
-
-const trie = makeTrieFromObjectList([
-  { 
-    id: 'value1', 
-    complex: {
-      val:'value 1',
-      anything: {...}
-    }
-  },
-  { 
-    id: 'value2', 
-    complex: {
-      val:'value 2',
-      anything: {...}
-    }
-  },
-  { 
-    id: 'value3', 
-    complex: {
-      val:'value 3',
-      anything: {...}
-    }
-  },
-], 'complex.val');
-```
 
 ### searchTrie(trie, word)
 
@@ -166,9 +115,6 @@ A Set of leaf nodes under the search prefix path
 
 Example:
 
-```tsx
-const searchTrieResults = searchTrie(trie, 'har')
-```
 
 ### filterListByTrie(list, trie, word)
 
@@ -188,12 +134,3 @@ An array of the filtered Items, starting with the results of the trie search.
 
 Example
 
-```tsx
-const originalList = [
-  { id: 'value1', name: 'value 1' },
-  { id: 'value2', name: 'value 2' },
-  { id: 'value3', name: 'value 3' }
-];
-const trie = makeTrieFromObjectList(originalList);
-const filteredList = filterListByTrie(list, trie, 'value');
-```
