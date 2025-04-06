@@ -40,7 +40,7 @@ export default function Author() {
         </div>
         <div className="mt-40">
           <Header>Stuff I worked on</Header>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col lg:grid grid-cols-2 gap-4">
             <ArticlePreview
               title="Using TreeSitter to get rid of NodeSASS"
               excerpt="The bundle size of our app was unnecessarily big. NodeSASS was causing most of it. We decided to replace it with JSS. To track the size of the project and the progress, I made a custom analyzing tool that builds a graph of dependencies."

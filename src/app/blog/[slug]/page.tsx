@@ -30,7 +30,7 @@ export default async function BlogPostPage({
         blog: <BlogSubMenu posts={posts} selected={currentPost?.slug} />,
       }}
     >
-      <div className="prose dark:prose-invert">{article}</div>
+      <div className="prose prose-invert">{article}</div>
     </SideNavLayout>
   );
 }

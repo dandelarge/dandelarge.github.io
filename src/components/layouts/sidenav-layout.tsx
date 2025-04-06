@@ -1,27 +1,27 @@
-import Li from "../Li";
 import { siGithub } from "simple-icons";
+import { ModeToggle } from "../ModeToggle";
+import { MainMenuProps } from "@/types/types";
+import Menu from "./menu";
+import { SlidingMenu } from "./sliding-menu";
 
-interface Props {
+interface Props extends MainMenuProps {
   children: React.ReactNode;
-  selected: string;
-  subMenus?: {
-    blog?: React.ReactNode;
-    home?: React.ReactNode;
-    author?: React.ReactNode;
-  };
 }
 
 export default function SideNavLayout({ children, selected, subMenus }: Props) {
-  console.log(siGithub.svg);
   return (
     <>
       <header>
         <nav className="p-4 justify-between bg-theme-accent bg-opacity-5 flex items-center">
+          <div className="md:hidden">
+            <SlidingMenu selected={selected} subMenus={subMenus} />
+          </div>
           <a href="/" className="flex gap-2 items-center">
             <img src="/chilli.svg" alt="logo" className="w10 h-10" />
             <h3 className="font-logo text-xl">SalsaScript.dev</h3>
           </a>
-          <div>
+          <div className="flex gap-4">
+            <ModeToggle />
             <a
               className="text-white"
               href="https://github.com/dandelarge/dandelarge.github.io"
@@ -41,18 +41,8 @@ export default function SideNavLayout({ children, selected, subMenus }: Props) {
         </nav>
       </header>
       <div className="flex min-h-screen">
-        <div className="flex flex-col w-60 py-14">
-          <ul>
-            <Li path="/" selected={selected} id="home" label="Home">
-              {subMenus?.home && subMenus.home}
-            </Li>
-            <Li path="/blog" selected={selected} id="blog" label="Blog">
-              {subMenus?.blog && subMenus.blog}
-            </Li>
-            <Li path="/author" selected={selected} id="author" label="Author">
-              {subMenus?.author && subMenus.author}
-            </Li>
-          </ul>
+        <div className="hidden md:flex">
+          <Menu selected={selected} subMenus={subMenus} />
         </div>
         <main className="flex flex-grow p-14 flex-col overflow-y-scroll overflow-hidden h-screen items-center">
           <div className="max-w-screen-md">{children}</div>

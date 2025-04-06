@@ -12,7 +12,7 @@ export default async function Blog() {
         blog: <BlogSubMenu posts={sources} />,
       }}
     >
-      <div className="prose dark:prose-invert">
+      <div className="prose prose-invert">
         <h1>Blog entries</h1>
         {sources.map((post) => (
           <div key={post.slug} className="mb-24 max-h-[800px] overflow-hidden">

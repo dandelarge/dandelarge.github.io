@@ -12,7 +12,7 @@ export default function UsingTreeSitterPage() {
         blog: <BlogSubMenu posts={posts} />,
       }}
     >
-      <div className="prose dark:prose-invert">
+      <div className="prose prose-invert">
         <h1>Using TreeSitter to get rid of NodeSASS</h1>
         <img src="/filegraph.png" alt="Filegraph" />
         <div className="flex flex-row w-full">
