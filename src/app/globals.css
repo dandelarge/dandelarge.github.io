@@ -6,12 +6,13 @@
 @layer base {
   :root {
     --font-family-logo: "Tiny5", monospace;
-    --bg-color-highlight: 255, 255, 255;
-    --bg-color-accent: 255, 255, 255;
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-    --text-color-default: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 47, 54, 64;
+    --background-end-rgb: 53, 59, 72;
+    --text-color-accent: 0, 184, 148;
+    --text-color-default: 255, 255, 255;
+    --text-color-blue: 0, 191, 255;
+    --text-color-red: 241, 48, 49;
   }
 
   .theme-alternate {
