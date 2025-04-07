@@ -9,31 +9,33 @@ export default function FormaLizingProcessesPage() {
         <Header>Formalizing Loose Processes</Header>
         <h2>Non-spoken rules</h2>
         <p>
-          There are certain "non-spoken" rules that happen naturally as a
-          project grows in size.
+          There are certain &quot;non-spoken&quot; rules that happen naturally
+          as a project grows in size.
         </p>
         <p>
           These rules are not documented anywhere, nobody talks about them
           regularly, but they do exist. Some certain day you&apos;ll break one
           of these unspoken rules and a more senior teammate will come to you
-          and say "Hey, you can&apos;t do that" or "We do that differently".
+          and say &quot;Hey, you can&apos;t do that&quot; or &quot;We do that
+          differently&quot;.
         </p>
         <p>
           There's usually a de facto way of doing things in a project that
           everybody gets to know eventually (the unspoken rules); it's usually
           trivial work or simple processes that are often adopted out of
-          repetition. "out of habit". Some times these processes can be done in
-          a few different ways but the "escence" of the task remains.
+          repetition. &quot;out of habit&quot;. Some times these processes can
+          be done in a few different ways but the &quot;escence&quot; of the
+          task remains.
         </p>
         <h2>The problem with loose processes</h2>
         <p>
           While a team is small enough, and everybody is in the same page, this
-          is more than ok; "Communication over Documentation"; many startups get
-          away with chaos because their developers are good communicating and
-          good technichally. But as the project grows in size, the communication
-          grows in complexity more than the processes themselves. At the end,
-          there's only so much time a developer has to interact with other team
-          members a day, and also be productive.
+          is more than ok; &quot;Communication over Documentation&quot;; many
+          startups get away with chaos because their developers are good
+          communicating and good technichally. But as the project grows in size,
+          the communication grows in complexity more than the processes
+          themselves. At the end, there's only so much time a developer has to
+          interact with other team members a day, and also be productive.
         </p>
         <p>
           One more problem with these loose processes is that people's
@@ -87,9 +89,9 @@ export default function FormaLizingProcessesPage() {
         </p>
         <p>
           For the development workflow, there are many comments of unhappiness
-          happening. and spicy comments like: "things are not clear", "I
-          don&quot;t know what they want" or "why does it take so long to change
-          a button?". So, it is a problem.
+          happening. and spicy comments like: &quot;things are not clear&quot;,
+          &quot;I don&quot;t know what they want&quot; or &quot;why does it take
+          so long to change a button?&quot;. So, it is a problem.
         </p>
         <h3>2. What is the goal of the process?</h3>
         <p>
@@ -139,8 +141,8 @@ export default function FormaLizingProcessesPage() {
         </p>
         <p>
           In the case of the development workflow, the actors are: The
-          developers and "others" (QA, Product, Design, etc). Because we want
-          the developers perspective, we are focusing in the developers
+          developers and &quot;others&quot; (QA, Product, Design, etc). Because
+          we want the developers perspective, we are focusing in the developers
           activities
         </p>
         <PreviewImg
