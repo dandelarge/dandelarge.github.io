@@ -20,9 +20,9 @@ export default function FormaLizingProcessesPage() {
           differently&quot;.
         </p>
         <p>
-          There's usually a de facto way of doing things in a project that
-          everybody gets to know eventually (the unspoken rules); it's usually
-          trivial work or simple processes that are often adopted out of
+          There&apos;s usually a de facto way of doing things in a project that
+          everybody gets to know eventually (the unspoken rules); it&apos;s
+          usually trivial work or simple processes that are often adopted out of
           repetition. &quot;out of habit&quot;. Some times these processes can
           be done in a few different ways but the &quot;escence&quot; of the
           task remains.
@@ -34,17 +34,17 @@ export default function FormaLizingProcessesPage() {
           startups get away with chaos because their developers are good
           communicating and good technichally. But as the project grows in size,
           the communication grows in complexity more than the processes
-          themselves. At the end, there's only so much time a developer has to
-          interact with other team members a day, and also be productive.
+          themselves. At the end, there&apos;s only so much time a developer has
+          to interact with other team members a day, and also be productive.
         </p>
         <p>
-          One more problem with these loose processes is that people's
-          interpretation of the process can be different. One problem I've seen
-          is that the very expectations of the role may not be clear for
-          everybody the same way; I've seen brilliant developers struggle with
-          performing at their best bacause these loose processes are on the way.
-          They might think they are givin their best and focusing on the wrong
-          bits of work.
+          One more problem with these loose processes is that people&apos;s
+          interpretation of the process can be different. One problem I&apos;ve
+          seen is that the very expectations of the role may not be clear for
+          everybody the same way; I&apos;ve seen brilliant developers struggle
+          with performing at their best bacause these loose processes are on the
+          way. They might think they are givin their best and focusing on the
+          wrong bits of work.
         </p>
         <h2>Writing down the process</h2>
         <p>
@@ -113,16 +113,16 @@ export default function FormaLizingProcessesPage() {
           As seen in the diagram, The development workflow includes many
           activities that are not related directly with the code itself. While
           in the diagram is clear that coding is just a small activity, this
-          wouldn't seem to be the logical conclusion that many people would get
-          when they think of the activities of a developer at first. Even
+          wouldn&apos;t seem to be the logical conclusion that many people would
+          get when they think of the activities of a developer at first. Even
           developers themselves.
         </p>
         <p>
           The goal of the process is to deliver software. To take it from
-          inseption to production. That's important. And by making the process
-          explicit, we can make sure that we understand the capacity of the team
-          as well as the team can understand what are the expectations from
-          them. Before having the diagram, we have the first two questions
+          inseption to production. That&apos;s important. And by making the
+          process explicit, we can make sure that we understand the capacity of
+          the team as well as the team can understand what are the expectations
+          from them. Before having the diagram, we have the first two questions
           answered.
           <ol>
             <li>
@@ -184,14 +184,14 @@ export default function FormaLizingProcessesPage() {
         <p>
           Writing down the processes makes sense when the processes are getting
           on the way or some terminology could be open to interpretation. In the
-          developer workflow example, it's very easy to assume that developers
-          will need to focus only on delivering code, but once we get all the
-          pieces together, we can see that the process is larger and the code is
-          just a small part of it.
+          developer workflow example, it&apos;s very easy to assume that
+          developers will need to focus only on delivering code, but once we get
+          all the pieces together, we can see that the process is larger and the
+          code is just a small part of it.
         </p>
         <h3>The first step is accepting you have a problem</h3>
         <p>
-          The first and hardest step is identifying there's a problem. Many
+          The first and hardest step is identifying there&apos;s a problem. Many
           times this flies over our heads simply because we are very used to how
           things work. But maybe, now that everyone knows the workflow, we can
           start thinking about improving it.
