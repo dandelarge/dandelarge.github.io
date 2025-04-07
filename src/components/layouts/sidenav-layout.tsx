@@ -44,8 +44,8 @@ export default function SideNavLayout({ children, selected, subMenus }: Props) {
         <div className="hidden md:flex">
           <Menu selected={selected} subMenus={subMenus} />
         </div>
-        <main className="flex flex-grow p-14 flex-col overflow-y-scroll overflow-hidden h-screen items-center">
-          <div className="max-w-screen-md">{children}</div>
+        <main className="md:flex md:flex-grow p-14 flex-col overflow-y-scroll overflow-hidden h-screen items-center">
+          <div className="max-w-screen-md ">{children}</div>
         </main>
       </div>
     </>

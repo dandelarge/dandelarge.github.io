@@ -1,4 +1,5 @@
 import BlogSubMenu from "@/components/BlogSubmenu";
+import Code from "@/components/Code";
 import PreviewImg from "@/components/PreviewImg";
 import SideNavLayout from "@/components/layouts/sidenav-layout";
 import getPosts from "@/utils/getPosts";
@@ -21,6 +22,10 @@ export default async function BlogPostPage({
     source: currentPost?.content || "",
     components: {
       Img: PreviewImg,
+      Code: Code,
+      pre: (props: any) => {
+        return <Code>{props.children.props.children}</Code>;
+      },
     },
   });
   return (
