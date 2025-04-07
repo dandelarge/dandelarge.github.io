@@ -1,9 +1,43 @@
+"use client";
+
+import React from "react";
 import Header from "@/components/Header";
 import ArticlePreview from "@/components/article-preview";
 import SideNavLayout from "@/components/layouts/sidenav-layout";
 import { SocialIcon } from "react-social-icons";
 
 export default function Author() {
+  const [iconColors, setIconColors] = React.useState({
+    linkedin: {
+      bgColor: "white",
+      fgColor: "black",
+    },
+    github: {
+      bgColor: "white",
+      fgColor: "black",
+    },
+  });
+
+  const handleMouseEnter = (key: string) => {
+    setIconColors((prevState) => ({
+      ...prevState,
+      [key]: {
+        bgColor: "black",
+        fgColor: "white",
+      },
+    }));
+  };
+
+  const handleMouseLeave = (key: string) => {
+    setIconColors((prevState) => ({
+      ...prevState,
+      [key]: {
+        bgColor: "white",
+        fgColor: "black",
+      },
+    }));
+  };
+
   return (
     <SideNavLayout selected="author">
       <div>
@@ -28,14 +62,18 @@ export default function Author() {
               <SocialIcon
                 style={{ height: 42, width: 42 }}
                 url="https://linkedin.com/in/denialarauz"
-                bgColor="white"
-                fgColor="black"
+                bgColor={iconColors.linkedin.bgColor}
+                fgColor={iconColors.linkedin.fgColor}
+                onMouseEnter={() => handleMouseEnter("linkedin")}
+                onMouseLeave={() => handleMouseLeave("linkedin")}
               />
               <SocialIcon
                 style={{ height: 42, width: 42 }}
                 url="https://github.com/dandelarge"
-                bgColor="white"
-                fgColor="black"
+                bgColor={iconColors.github.bgColor}
+                fgColor={iconColors.github.fgColor}
+                onMouseEnter={() => handleMouseEnter("github")}
+                onMouseLeave={() => handleMouseLeave("github")}
               />
             </div>
           </div>

@@ -13,15 +13,30 @@ function Modal({
   const documentTop = document.documentElement.scrollTop;
   useEffect(() => {
     document.body.style.overflow = "hidden";
+
+    function handleKeyPress(e: KeyboardEvent) {
+      if (e.key === "Escape" && onClose && onClose instanceof Function) {
+        onClose();
+      }
+    }
+
+    window.addEventListener("keyup", handleKeyPress);
     return () => {
       document.body.style.overflow = "auto";
+      window.removeEventListener("keyup", handleKeyPress);
     };
   }, []);
+
   return (
     <div
       className="absolute inset-0 bg-black bg-opacity-50 h-full w-full flex flex-col justify-center items-center"
       style={{
         top: `${documentTop}px`,
+      }}
+      onClick={() => {
+        if (onClose && onClose instanceof Function) {
+          onClose();
+        }
       }}
     >
       <div className="w-full flex flex-col gap-12 justify-center items-end">
@@ -30,7 +45,14 @@ function Modal({
         </button>
       </div>
 
-      {children}
+      <div
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }
