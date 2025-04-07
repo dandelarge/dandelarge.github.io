@@ -58,7 +58,7 @@ function Modal({
 }
 
 interface Props {
-  src: string;
+  src?: string;
   alt: string;
   styles?: any;
 }
@@ -72,6 +72,10 @@ export default function PreviewImg({ src, alt, styles }: Props) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  if (!src) {
+    return null;
+  }
 
   return (
     <>
