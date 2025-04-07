@@ -16,7 +16,7 @@ export default function UsingTreeSitterPage() {
         <h1>Using TreeSitter to get rid of NodeSASS</h1>
         <img src="/filegraph.png" alt="Filegraph" />
         <div className="flex flex-row w-full">
-          <img className="flex-1 w-1/2" src="/confusingcode.png" alt="" />
+          <img className="flex-1 w-1/2" src="/confusingCode.png" alt="" />
           <img className="flex-1 w-1/2" src="/visible-confusion.png" alt="" />
         </div>
       </div>
