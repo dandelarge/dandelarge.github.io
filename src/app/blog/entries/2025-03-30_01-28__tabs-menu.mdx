@@ -6,11 +6,129 @@ Jira has this very nice retractible menu that turns from a horizontal menu to a 
 
 <Img src="/tabs-menu-example.png" alt="Tabs Menu Example" />
 
-## Tech Details
+What the menu provides is a way to have one singlee component that works well with mobile and desktop screens.
+
+Once we have build such component, we can use it in any part of the application. And forget about media queries or a hidden mobile menu.
+
+## Defining the behavior
+
+When there's enough space, the menu is horizontal. All the items are visible.
+
+When the menu doesn't fit on the screen, it shows only the items that do fit. The rest of the items will be hidden behind a "more" button. When the "more" button is clicked, then we show a vertical menu in a popover with the rest of the items.
+
+The menu should also respond to screen resizing.
+
+## Designing the component
+
+### The algorithm
+We need three data structures to keep track of the menu items. Objectively we could do with only one array and a few counting variables, but this is a friendlier approach to understand. We are not trying to optimize the memory usage here. No menu is going to be above 100 items. Not in my watch.
 
 <Img src="/tabs-menu-1.png" alt="Tabs Menu Algorithm" />
+
+As shown in the image, we have two arrays and a map:
+- `visibleItems`: this array contains the items that are currently visible in the menu.
+- `hiddenItems`: this array contains the items that are currently hidden in the menu.
+- `widthsMap`: this map contains the widths of the items in the menu. This is used to calculate the width of the menu and to determine which items are visible and which are hidden.
+
+By default all items are in the visibleItems array. Once we know the width of the items, and of the viewport, we can start making calculations.
+
+The component has two containers:
+- `OuterContainer`: this is the container that holds the menu. It has a width of 100%. This container width will represent how much space we have to show the menu items.
+- `InnerContainer`: this is the container that holds the menu items. It's a flex container that will be the width of it\'s children. This container will work as a "sensor" and will tell us the items are spilling out of the viewport.
+
+
+The logic is pretty straight forward:
+
+1. We start with all the items in the `visibleItems` array.
+
+2. We fill the `widthsMap` with the widths of the items.
+
+3. We check the widths of the `innerContainer` and the `outerContainer`.
+
 <Img src="/tabs-menu-2.png" alt="Tabs Menu Algorithm" />
+
+If the width of the `innerContainer` is less than the width of the `outerContainer`, there's nothing to do. We can render the menu.
+
+If the width of the `innerContainer` is greater or equal than the width of the `outerContainer`, we need to start moving items from the `visibleItems` array to the `hiddenItems` array until this condition is met:
+
+```tsx
+
+const innerContainerWidth = 
+  $innerContainer.getBoundingClientRect().width;
+const outerContainerWidth = 
+  $outerContainer.getBoundingClientRect().width;
+
+const shouldRemoveAnotherItem = 
+  innerContainerWidth <= outerContainerWidth;
+```
+
+For that, we need to:
+1. Append the "more" button to the `innerContainer`.
+2. The width of the `innerContainer` needs to be smaller than the width of the `outerContainer`. So we start substracting the widths of the items from the `innerContainer` width.
+
 <Img src="/tabs-menu-3.png" alt="Tabs Menu Algorithm" />
+
+We can create the widthsMap by getting all the items in the `innerContainer` and using the `getBoundingClientRect()` method to get the width of each item. We can then use this information to calculate the width of the `innerContainer`.
+
+```tsx
+const $innerContainer = document.querySelector('#inner-container');
+const $innerContainerItems = $innerContainer.children;
+const widthsMap = {};
+const visibleItems = [];
+const hiddenItems = [];
+
+for (let i = 0; i < $innerContainerItems.length; i++) {
+  const item = $innerContainerItems[i];
+  // Assuming each item has a data-name attribute
+  const itemName = item.getAttribute('data-name');
+  const width = item.getBoundingClientRect().width;
+  widthsMap[itemName] = width;
+  visibleItems.push(itemName);
+}
+```
+
+The validation would look something like this:
+```tsx
+
+const lastItemWidth = 
+  widthsMap[visibleItems[visibleItems.length - 1]];
+
+const currentWidth = 
+  innerContainerWidth - lastItemWidth;
+
+const shouldRemoveAnotherItem = 
+  currentWidth <= outerContainerWidth;
+```
+
+We can iterate the array from back to front, removing from the back and comparing again:
+```tsx
+
+const $innerContainer = document.querySelector('#inner-container');
+const $outerContainer = document.querySelector('#outer-container');
+
+// 1. Append the button to the innerContainer
+const $moreButton = document.createElement('button');
+$moreButton.innerText = 'More';
+$innerContainer.appendChild($moreButton);
+
+const innerContainerWidth = 
+  $innerContainer.getBoundingClientRect().width;
+
+const outerContainerWidth =
+  $outerContainer.getBoundingClientRect().width;
+
+// 2. Check if the innerContainer is wider than the outerContainer. here's where we iterate until we have the right amount of items to show
+let currentWidth = innerContainerWidth;
+while (currentWidth >= outerContainerWidth 
+  || visibleItems.length > 0) {
+  const lastItemName = visibleItems.pop();
+  hiddenItems.push(lastItemName);
+  const lastItemWidth = widthsMap[lastItemName];
+  currentWidth -= lastItemWidth;
+}
+```
+
+
 <Img src="/tabs-menu-4.png" alt="Tabs Menu Algorithm" />
 <Img src="/tabs-menu-5.png" alt="Tabs Menu Algorithm" />
 

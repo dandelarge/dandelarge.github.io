@@ -42,12 +42,15 @@ export default function Author() {
     <SideNavLayout selected="author">
       <div>
         <Header>About the Author</Header>
-        <div className="flex gap-8 items-center">
-          <a href="http://linkedin.com/in/denialarauz">
+        <div className="flex gap-8 flex-col sm:flex-row">
+          <a
+            href="http://linkedin.com/in/denialarauz"
+            className="flex-shrink-0"
+          >
             <img
               src="/author.jpeg"
               alt="Daniel's Portrait"
-              className="w-32 h-32 rounded-full border-white border-opacity-40 border-4 hover:border-opacity-100"
+              className="w-32 h-32 rounded-full border-white border-opacity-40 border-4 hover:border-opacity-100 "
             />
           </a>
           <div>
