@@ -20,6 +20,7 @@ module.exports = {
       sans: ["var(--font-family-sans)", "sans-serif"],
       serif: ["var(--font-family-serif)", "serif"],
       logo: ["var(--font-family-logo)", "monospace"],
+      hand: ["var(--font-family-handwriting)", "sans-serif"],
     },
     extend: {
       textColor: {

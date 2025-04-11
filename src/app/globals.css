@@ -4,7 +4,15 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: "Excalifont";
+    src: url("/Excalifont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+
   :root {
+    --font-family-handwriting: "Excalifont", monospace;
     --font-family-logo: "Tiny5", monospace;
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 47, 54, 64;
@@ -14,8 +22,8 @@
     --text-color-blue: 0, 191, 255;
     --text-color-red: 241, 48, 49;
     --bg-color-highlight: 255, 255, 255;
-    --background: 215.29 15.32% 21.76%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -80,8 +88,8 @@
     background: rgb(var(--background-start-rgb));
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 215.29 15.32% 21.76%;
+    --foreground: 0 0% 100%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;

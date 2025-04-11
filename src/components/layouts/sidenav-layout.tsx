@@ -22,10 +22,7 @@ export default function SideNavLayout({ children, selected, subMenus }: Props) {
           </a>
           <div className="flex gap-4">
             <ModeToggle />
-            <a
-              className="text-white"
-              href="https://github.com/dandelarge/dandelarge.github.io"
-            >
+            <a href="https://github.com/dandelarge/dandelarge.github.io">
               <svg
                 role="img"
                 viewBox="0 0 24 24"

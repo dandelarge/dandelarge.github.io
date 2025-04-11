@@ -12,7 +12,7 @@ export default function BlogSubMenu({
       {posts.map((post) => (
         <li
           key={post.slug}
-          className="hover:bg-theme-highlight hover:bg-opacity-5 text-white text-opacity-80 text-sm font-light p-2 pl-6 overflow-hidden text-ellipsis whitespace-nowrap"
+          className="hover:bg-theme-highlight hover:bg-opacity-5 text-opacity-80 text-sm font-light p-2 pl-6 overflow-hidden text-ellipsis whitespace-nowrap"
           style={{
             color: selected === post.slug ? "rgba(255, 255, 255, 1)" : "",
             fontWeight: selected === post.slug ? 500 : 300,

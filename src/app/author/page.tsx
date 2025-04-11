@@ -54,11 +54,10 @@ export default function Author() {
             />
           </a>
           <div>
-            <h3 className="text-2xl font-bold text-white text-opacity-75 mb-4">
-              I am{" "}
-              <span className="text-white text-opacity-100">Daniel Arauz.</span>
+            <h3 className="text-2xl font-bold text-opacity-75 mb-4">
+              I am <span className="text-opacity-100">Daniel Arauz.</span>
             </h3>
-            <p className="text-white text-opacity-75">
+            <p className="text-opacity-75">
               I&apos;ve been developing stuff since 2012.
             </p>
             <div className="flex py-6 gap-4">

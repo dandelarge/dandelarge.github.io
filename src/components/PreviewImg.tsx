@@ -40,7 +40,7 @@ function Modal({
       }}
     >
       <div className="w-full flex flex-col gap-12 justify-center items-end">
-        <button className="p-4 text-white text-lg" onClick={onClose}>
+        <button className="p-4 text-lg" onClick={onClose}>
           Close
         </button>
       </div>

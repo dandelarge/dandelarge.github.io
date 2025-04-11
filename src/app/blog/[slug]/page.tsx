@@ -35,7 +35,7 @@ export default async function BlogPostPage({
         blog: <BlogSubMenu posts={posts} selected={currentPost?.slug} />,
       }}
     >
-      <div className="prose prose-invert prose-h1:text-4xl prose-h2:text-3xl lg:prose-h1:text-7xl">
+      <div className="prose dark:prose-invert prose-h1:text-4xl prose-h2:text-3xl lg:prose-h1:text-7xl">
         {article}
       </div>
     </SideNavLayout>
